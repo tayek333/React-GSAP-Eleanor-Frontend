@@ -19,6 +19,7 @@
   line-height: 8.625vw;
   white-space: pre-line;
   margin: 0px;
+  font-weight: normal;
   `
   const Arrowicon = styled.img`
   position: relative;
