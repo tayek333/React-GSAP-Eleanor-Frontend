@@ -57,13 +57,13 @@ function Footer(){
                         <FooterLogo src={footerimg}/>
                     </LogoLink>
                     <SpaceBetween />
-                    <Footerlinks>
+                    <Footerlinks href='./'>
                         About us
                     </Footerlinks>
-                    <Footerlinks>
+                    <Footerlinks href='./'>
                         Terms of Use
                     </Footerlinks>
-                    <Footerlinks>
+                    <Footerlinks href='./'>
                         FAQ
                     </Footerlinks>
                 </Row>
