@@ -8,6 +8,7 @@ import Section2 from './components/Section2';
 import Section3 from './components/Section3';
 import Pricing from './components/Pricing';
 import CtaSection from './components/CtaSection';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Section3 /> 
       <Pricing />
       <CtaSection />
+      <Footer />
     </>
   );
 }
