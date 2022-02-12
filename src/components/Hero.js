@@ -88,7 +88,7 @@
                 Drive A New <br /> Car Every Month.
               </Herotitle>
               <Subcontainer>
-                <a>
+                <a href='./'>
                   Available On The Appstore
                 </a>
                 <Arrowicon src={arrow} />
