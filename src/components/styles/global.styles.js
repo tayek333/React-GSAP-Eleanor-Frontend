@@ -45,6 +45,16 @@ img {
 p {
 font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
+a {
+color: rgb(65, 74, 105);
+font-size: 16px;
+font-weight: bold;
+letter-spacing: -0.47px;
+line-height: 54px;
+text-decoration: none;
+margin-left: 5px;
+font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
 `
 
 export default GlobalStyles
