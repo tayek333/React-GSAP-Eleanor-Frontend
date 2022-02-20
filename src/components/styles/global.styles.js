@@ -2,7 +2,12 @@ import { createGlobalStyle } from 'styled-components'
 import Eina03 from '../../fonts/Eina03-Bold.ttf'
 import BebasRegular from '../../fonts/BebasNeue Regular.otf'
 import BebasBold from '../../fonts/BebasNeue Bold.otf'
-import BebasBook from '../../fonts/BebasNeue Book.otf'
+import BebasBook from '../../fonts/BebasNeue Book.otf'  
+
+export const media = {
+    s: '@media(max-width: 767px)',
+    m: '@media(max-width: 1023px)'
+}
 
 const GlobalStyles = createGlobalStyle `
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
@@ -26,6 +31,8 @@ const GlobalStyles = createGlobalStyle `
     src: url(${BebasBook});
     font-weight: 200;
 }
+
+
 * {
     box-sizing: border-box;
 }
@@ -33,7 +40,7 @@ const GlobalStyles = createGlobalStyle `
 body{
     font-family: 'Bebas Neue';
     margin: 0;
-    font-size: 1.15em;
+    font-size: 16px;
     padding: 0;
     
 }
@@ -45,16 +52,7 @@ img {
 p {
 font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
-a {
-color: rgb(65, 74, 105);
-font-size: 16px;
-font-weight: bold;
-letter-spacing: -0.47px;
-line-height: 54px;
-text-decoration: none;
-margin-left: 5px;
-font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-}
+
 `
 
 export default GlobalStyles
