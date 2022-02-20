@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Coinimg from '../images/coin.svg';
 import PaperIcon from '../images/paper.svg';
-import WrenchIcon from '../images/wrench.svg'
+import WrenchIcon from '../images/wrench.svg';
+import { media } from './styles/global.styles';
 
 const Section = styled.section`
 display: flex;
@@ -10,6 +11,12 @@ padding: 0px 5%;
 background-color: rgb(255, 255, 255);
 height: 70vh;
 overflow: hidden;
+
+${media.m} {
+    flex-direction: column;
+    padding: 16vh 5% 0px;
+    height: unset;
+}
 `
 const Container = styled.div`
 display: flex;
@@ -19,6 +26,9 @@ width: 100%;
 height: 100%;
 -moz-box-pack: justify;
 justify-content: space-between;
+${media.m} {
+    flex-direction: column;
+}
 `
 const Box = styled.div`
 display: flex;
@@ -30,6 +40,12 @@ flex-direction: column;
 background-color: rgb(244, 244, 245);
 height: 28.3vw;
 width: 28.3vw;
+${media.m} {
+    flex-direction: column;
+    height: 100vw;
+    width: 100vw;
+    margin-bottom: 3vw;
+}
 `
 const Icon = styled.img`
 height: 30%;
@@ -45,6 +61,12 @@ font-weight: normal;
 letter-spacing: -0.01vw;
 line-height: 1;
 margin: 2vw 0px 1vw;
+${media.m} {
+    font-size: 8vw;
+    letter-spacing:-0.01vw;
+    line-height: 1;
+    margin: 10vw 0px 4vw;
+}
 `
 const P = styled.p`
 white-space: pre-line;
@@ -54,6 +76,10 @@ font-weight: normal;
 letter-spacing: -0.03vw;
 line-height: 1.5;
 margin: 0px;
+${media.m} {
+    font-size: 3vw;
+    letter-spacing: -0.01vw;
+}
 `
 function Pricing(){
     return(
