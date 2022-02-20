@@ -9,10 +9,16 @@ import Section3 from './components/Section3';
 import Pricing from './components/Pricing';
 import CtaSection from './components/CtaSection';
 import Footer from './components/footer';
+import styled from 'styled-components'
 
+const Main = styled.main`
+min-height: 100vh;
+width: 100vw;
+overflow: hidden;
+`
 function App() {
   return (
-    <>
+    <Main>
       <GlobalStyles />
       <Header />
       <HeroComponent />
@@ -22,7 +28,7 @@ function App() {
       <Pricing />
       <CtaSection />
       <Footer />
-    </>
+    </Main>
   );
 }
 
