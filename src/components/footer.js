@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
-import footerimg from '../images/footerlogo.svg'
+import footerimg from '../images/footerlogo.svg';
+import { media } from './styles/global.styles';
 
 const FooterContainer = styled.div`
 display: flex;
@@ -16,6 +17,11 @@ height: 1px;
 width: 100%;
 flex: 1 1 100%;
 margin: 6.25vw 0px 1.875vw;
+
+${media.m} {
+    margin: 10vw 0px 3vw;
+}
+
 `
 const Row = styled.div`
 flex: 1 1 0%;
@@ -23,7 +29,11 @@ display: flex;
 -moz-box-align: center;
 align-items: center;
 -moz-box-pack: end;
-justify-content: space-between;
+justify-content: flex-end;
+
+${media.m} {
+    padding: 1vw 0px 6vw;
+}
 `
 const LogoLink = styled.a`
 padding: 10px 20px;
@@ -32,9 +42,17 @@ font-size: 1.2vw;
 font-weight: 600;
 letter-spacing: -0.02vw;
 text-decoration: none;
+
 `
 const FooterLogo = styled.img`
 height: 1.2vw;
+
+${media.m} {
+    height: 1.6vw;
+}
+${media.s} {
+    height: 2.2vw;
+}
 }
 `
 const SpaceBetween = styled.div`
@@ -47,6 +65,13 @@ font-weight: normal;
 letter-spacing: -0.02vw;
 text-decoration: none;
 padding: 10px 20px;
+
+${media.m} {
+    font-size: 1.5vw
+}
+${media.s} {
+    display:none;
+}
 `
 function Footer(){
     return(
