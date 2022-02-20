@@ -2,18 +2,36 @@ import React from 'react';
 import styled from 'styled-components';
 import Car from '../images/front-porsche.png'
 import Screenshot from '../images/vehicle-swap-screenshot.png'
+import { media } from './styles/global.styles'
 
 const Section = styled.section`
 display: Flex;
 padding: 6vw 5% 0px;
 background-color: white;
 height: 100vh;
+
+${media.m} {
+    height: unset;
+    margin-top: 6vw;
+    flex-direction: column-reverse;
+}
 `
 const LeftColumn = styled.div`
 position: relative;
 height: 90vh;
 width: 30vw;
 transform: translateY(-6vh);
+
+${media.m} {
+    height: 100vh;
+    width: 80vw;
+    transform: translate(-10%, 2vh);
+}
+${media.s} {
+    height: 75vh;
+    width: 80vw;
+    transform: translate(-10%, 2vh)
+}
 `
 const CardWrapper = styled.div`
 position: absolute;
@@ -46,6 +64,17 @@ font-size: 0px;
 border-radius: 35px;
 transform: translate(40%, -50%);
 filter: drop-shadow(rgba(0, 0, 0, 0.2) 20px 20px 25px);
+
+${media.m} {
+    right: 0px;
+    top: 50%;
+    width: 35vh;
+}
+${media.s} {
+    right: 0px;
+    top: 50%;
+    width: 25vh
+}
 `
 const Img = styled.img`
 width: 100%;
@@ -54,6 +83,12 @@ const HeadingWrapper = styled.div`
 flex: 1 1 0%;
 margin-left: 15vw;
 margin-top: 25vh;
+
+${media.m} {
+    flex: unset;
+    margin-left: 0vw;
+    margin-top: 0vh
+}
 `
 const H2 = styled.h2`
 color: rgb(43, 49, 68);
@@ -62,6 +97,13 @@ font-weight: normal;
 line-height: 6vw;
 margin: 0px;
 white-space: pre-line;
+margin-right: 20%;
+
+${media.m} {
+    font-size: 11vw;
+    line-height: 11vw;
+    white-space: unset;
+}
 `
 const P = styled.p`
 color: rgb(0, 0, 0);
@@ -72,6 +114,15 @@ width: 90%;
 white-space: pre-line;
 margin-top: 2vw;
 font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+padding-right: 30%;
+${media.m} {
+    margin-top: 4vw;
+    font-size: 3.5vw;
+    line-height: 6vw;
+    white-space: unset;
+    width: 100%;
+    padding-right: 0%;
+}
 `
 function Section3() {
     return(
@@ -90,14 +141,11 @@ function Section3() {
             <HeadingWrapper>
                 <H2>
                     Trade in Your Car
-                    <br />
                     Every Month.
                 </H2>
                 <P>
                 Use Eleanor Trade-In Credits to trade in your vehicle for 
-                <br />
                 something else in our luxurious inventory.  Nothing says 
-                <br />
                 “June” like a new car!
                 </P>
             </HeadingWrapper>
