@@ -21,6 +21,9 @@ const LogoLink = styled.a`
 z-index: 1;
 height: 1vw;
 ${media.m} {
+    height: 2.5vw;
+}
+${media.s} {
     height: 3.882vw;
 }
 `
@@ -28,7 +31,7 @@ ${media.m} {
 function Header() {
     return(
         <HeaderContainer>
-            <LogoLink>
+            <LogoLink href=''>
                 <Logo src={logo}/>
             </LogoLink>
         </HeaderContainer>
