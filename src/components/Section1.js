@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef }from 'react';
 import styled from 'styled-components';
 import forwardarrow from '../images/forwardarrow.svg';
 import backarrow from '../images/backarrow.svg';
@@ -7,6 +7,9 @@ import hp from '../images/hp.svg';
 import mph from '../images/mph.svg';
 import RangeRover from '../images/2018-Range-Rover-Velgar.png';
 import { media } from './styles/global.styles'
+import { gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
 display: flex;
@@ -207,6 +210,11 @@ left: 5.6vw;
 
 ${media.m} {
     width: 90vw;
+    bottom: -25vh;
+}
+${media.s} {
+    left: unset;
+    bottom: -9.5vh;
 }
 `
 const CarImage = styled.img`
@@ -255,14 +263,59 @@ ${media.m} {
 
 }
 `
+
 function Section1() {
+    
+    let cardRef = useRef(null);
+    let headingRef = useRef(null);
+    let paragraphRef = useRef(null);
+    let cardcontentRef = useRef(null);
+    let carRef = useRef(null);
+
+    useEffect(() => {
+        gsap.from(cardRef.current, 1, { 
+            transformOrigin: 'right',
+            scaleX: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .5,
+        });
+        gsap.from(headingRef.current, 1, { 
+            y: -100,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1,
+        });
+        gsap.from(paragraphRef.current, 1, { 
+            y: -50,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1.3,
+        });
+        gsap.from(cardcontentRef.current, 1, { 
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1.4,
+        });
+        gsap.from(carRef.current, 1, { 
+            opacity: 0,
+            x: 500,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1,
+        });
+    });
+
     return(
         <Section>
             <Card>
-                <BackgroundContainer>
+                <BackgroundContainer ref={cardRef}>
                     <Background />
                 </BackgroundContainer>
-                <ItemsContainer>
+                <ItemsContainer ref={cardcontentRef}>
                     <ButtonContainer>
                         <BackButton>
                             <BackArrow src={backarrow}/>
@@ -271,7 +324,7 @@ function Section1() {
                             <ForwardArrow src={forwardarrow} />
                         </ForwardButton>
                     </ButtonContainer>
-                    <BodyContainer>
+                    <BodyContainer ref={cardcontentRef}>
                         <ProductTitle>
                             <H3>
                                 Land Rover
@@ -307,15 +360,15 @@ function Section1() {
                         </Table>
                     </BodyContainer>
                 </ItemsContainer>
-                <CarContainer>
-                    <CarImage src={RangeRover}/>
+                <CarContainer ref={carRef}>
+                    <CarImage src={RangeRover} />
                 </CarContainer>
             </Card>
             <HeadingContainer>
-                <H2>
+                <H2 ref={headingRef}>
                     Select a Vehicle From Your Phone.
                 </H2>
-                <P>
+                <P ref={paragraphRef}>
                     Select from a wide range of luxury vehicles in our inventory. 
                     Drive it for a month, trade it the next for something else you have 
                     always wanted to own.
@@ -323,6 +376,6 @@ function Section1() {
             </HeadingContainer>
         </Section>
     )
-}
+};
 
 export default Section1
