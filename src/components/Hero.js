@@ -1,11 +1,12 @@
-  import React from "react";
+  import React, { useRef, useEffect } from "react";
   import styled from 'styled-components';
   import heroimg from '../images/Your Vehicle - phone2 1.png';
   import arrow from '../images/arrow.svg';
   import porsche from '../images/porsche.png';
   import car1 from '../images/car1.png';
   import car2 from '../images/car2.png';
-  import { media } from './styles/global.styles'
+  import { media } from './styles/global.styles';
+  import { gsap, Power3 } from 'gsap';
 
   const Hero = styled.section `
 
@@ -72,6 +73,11 @@
   font-family: 'Eina03';
   `
   const Carscontainer = styled.div`
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  left: 0px;
+  bottom: -5vh;
   ${media.m}  {
     overflow: hidden;
     width: 100%;
@@ -150,9 +156,38 @@
 
 
   function HeroComponent() {
+
+    let backgroundRef = useRef(null);
+    let carsRef = useRef(null);
+    let headingRef = useRef(null);
+    let screenRef = useRef(null);
+
+    useEffect(() => {
+      gsap.from(backgroundRef.current, 1, {
+        x: -5000, 
+        ease: Power3.easeOut
+        });
+      gsap.from(carsRef.current, 1, {
+        x: -1280, 
+        ease: Power3.easeOut, 
+        delay: .2
+      });
+      gsap.from(headingRef.current, 1, {
+        opacity: 0, 
+        y: -100, 
+        ease: Power3.easeOut, 
+        delay: .5
+      });
+      gsap.from(screenRef.current, 1, {
+        opacity: 0, 
+        x: 700, 
+        ease: Power3.easeOut, 
+        delay: .5});
+    });
+    
       return(
-          <Hero>
-            <Herocontainer>
+          <Hero ref={backgroundRef}>
+            <Herocontainer ref={headingRef}>
               <Herotitle>
                 Drive A New <br /> Car Every Month.
               </Herotitle>
@@ -163,19 +198,19 @@
                 <Arrowicon src={arrow} />
               </Subcontainer>
             </Herocontainer>
-
-            <Carscontainer>
-              <Whitespace />
+            <Whitespace />
+            <Carscontainer ref={carsRef}>
+              
               <Car1 src={car1} />
               <Car2 src={car2} />
               <Porsche src={porsche} />
             </Carscontainer>
             
-            <Heroimgcontainer>
+            <Heroimgcontainer ref={screenRef}>
               <Heroimg src={heroimg}/>
             </Heroimgcontainer>
           </Hero>
       )
-  }
+  };
 
   export default HeroComponent;
