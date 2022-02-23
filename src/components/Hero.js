@@ -157,10 +157,10 @@
 
   function HeroComponent() {
 
-    let backgroundRef = useRef(null);
-    let carsRef = useRef(null);
-    let headingRef = useRef(null);
-    let screenRef = useRef(null);
+    const backgroundRef = useRef(null);
+    const carsRef = useRef(null);
+    const headingRef = useRef(null);
+    const screenRef = useRef(null);
 
     useEffect(() => {
       gsap.from(backgroundRef.current, 1, {

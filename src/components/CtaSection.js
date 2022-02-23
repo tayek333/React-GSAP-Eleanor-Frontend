@@ -1,9 +1,12 @@
-import React from 'react';
-import styled from 'styled-components'
-import Guy from '../images/guy.png'
-import Car from '../images/car2.png'
-import Arrowsvg from '../images/arrow.svg'
-import { media } from './styles/global.styles'
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import Guy from '../images/guy.png';
+import Car from '../images/car2.png';
+import Arrowsvg from '../images/arrow.svg';
+import { media } from './styles/global.styles';
+import { gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
 display: flex;
@@ -150,16 +153,51 @@ top: 2px;
 left: 5px;
 `
 function CtaSection(){
+
+    const cardRef = useRef(null);
+    const carRef = useRef(null);
+    const contentRef = useRef(null);
+    const guyRef = useRef (null);
+
+    useEffect(() => {
+        gsap.from(carRef.current, 1, { 
+            opacity: 0,
+            x: -200,
+            ease: Power3.easeOut, 
+            scrollTrigger: carRef.current,
+            delay: .2,
+        });
+        gsap.from(guyRef.current, .5, { 
+            opacity: 0,
+            x: -200,
+            ease: Power3.easeOut, 
+            scrollTrigger: carRef.current,
+            delay: .2,
+        });
+        gsap.from(cardRef.current, .5, { 
+            x: -600,
+            ease: Power3.easeOut, 
+            scrollTrigger: carRef.current,
+        });
+        gsap.from(contentRef.current, .5, { 
+            opacity: 0,
+            y: -200,
+            ease: Power3.easeOut, 
+            scrollTrigger: carRef.current,
+            delay: .5,
+        });
+    });
+
     return(
         <Section>
             <CardContainer>
                 <CardWrapper>
-                    <Background />
+                    <Background ref={cardRef}/>
                 </CardWrapper> 
-                <CenterImg src={Guy}/>
-                <CarImg src={Car}/>
+                <CenterImg ref={guyRef} src={Guy}/>
+                <CarImg ref={carRef} src={Car} />
             </CardContainer>
-            <HeadingContainer>
+            <HeadingContainer ref={contentRef}>
                 <H2>
                     Customers With
                     <br />
@@ -183,6 +221,6 @@ function CtaSection(){
             </HeadingContainer>
         </Section>
     )
-}
+};
 
-export default CtaSection
+export default CtaSection;

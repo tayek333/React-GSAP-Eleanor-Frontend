@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import Coinimg from '../images/coin.svg';
 import PaperIcon from '../images/paper.svg';
 import WrenchIcon from '../images/wrench.svg';
 import { media } from './styles/global.styles';
+import {gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
 display: flex;
@@ -82,23 +85,53 @@ ${media.m} {
 }
 `
 function Pricing(){
+
+    const box1Ref = useRef(null);
+    const box2Ref = useRef(null);
+    const box3Ref = useRef(null);
+    const paragraphRef = useRef(null); 
+
+    useEffect(() => {
+        gsap.from(box1Ref.current, .5, { 
+            opacity: 0,
+            y: -100,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .2
+        });
+        gsap.from(box2Ref.current, .5, { 
+            opacity: 0,
+            y: -100,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .4,
+        });
+        gsap.from(box3Ref.current, .5, { 
+            opacity: 0,
+            y: -100,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .6,
+        });
+    });
+
     return(
         <Section>
             <Container>
-                <Box>
+                <Box ref={box1Ref}>
                     <Icon src={Coinimg}/>
                     <Content>
                         <H2>
                             Simple Monthly Pricing
                         </H2>
-                        <P>
+                        <P ref={paragraphRef}>
                             Pick your plan, pay the monthly price.  
                             <br />
                             Thats it.  No hidden fees!
                         </P>
                     </Content>
                 </Box>
-                <Box>
+                <Box ref={box2Ref}>
                     <Icon src={PaperIcon}/>
                     <Content>
                         <H2>Vehicle Insurance Included</H2>
@@ -109,7 +142,7 @@ function Pricing(){
                         </P>
                     </Content>
                 </Box>
-                <Box>
+                <Box ref={box3Ref}>
                     <Icon src={WrenchIcon}/>
                     <Content>
                         <H2>
@@ -125,6 +158,6 @@ function Pricing(){
             </Container>
         </Section>
     )
-}
+};
 
-export default Pricing
+export default Pricing;
