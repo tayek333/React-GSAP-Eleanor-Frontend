@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import Car from '../images/front-porsche.png'
 import Screenshot from '../images/vehicle-swap-screenshot.png'
 import { media } from './styles/global.styles'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap, {Power3} from 'gsap';
+gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
 display: Flex;
@@ -125,25 +128,60 @@ ${media.m} {
 }
 `
 function Section3() {
+
+    const cardRef = useRef(null);
+    const paragraphRef = useRef(null);
+    const screenRef = useRef(null);
+    const headingRef = useRef(null);
+
+    useEffect(() => {
+        gsap.from(cardRef.current, 1, { 
+            x: -600,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+        });
+        gsap.from(screenRef.current, 1, { 
+            opacity: 0,
+            y: -100,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .5,
+        });
+        gsap.from(headingRef.current, .5, { 
+            opacity: 0,
+            y: -200,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .8,
+        });
+        gsap.from(paragraphRef.current, .5, { 
+            opacity: 0,
+            y: -200,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: .9,
+        });
+    });
+
     return(
         <Section>   
             <LeftColumn>
-                <CardWrapper>
+                <CardWrapper ref={cardRef}>
                     <Card>
                         <CarImg src={Car}/>
                     </Card>
                 </CardWrapper>
                 <ScreenshotWrapper>
-                    <Img src={Screenshot}/>
+                    <Img src={Screenshot} ref={screenRef}/>
                 </ScreenshotWrapper>
             </LeftColumn>
 
             <HeadingWrapper>
-                <H2>
+                <H2 ref={headingRef}>
                     Trade in Your Car
                     Every Month.
                 </H2>
-                <P>
+                <P ref={paragraphRef}>
                 Use Eleanor Trade-In Credits to trade in your vehicle for 
                 something else in our luxurious inventory.  Nothing says 
                 “June” like a new car!

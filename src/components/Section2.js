@@ -133,36 +133,34 @@ function Section2() {
             y:-200,
             opacity: 0,
             ease: Power3.easeOut, 
-            scrollTrigger: paragraphRef.current,
-            delay: 1,
+            scrollTrigger: carRef.current,
         });
         gsap.from(paragraphRef.current, 1, { 
             y:-200,
             opacity: 0,
             ease: Power3.easeOut, 
-            scrollTrigger: paragraphRef.current,
-            delay: 1.2,
+            scrollTrigger: carRef.current,
+            delay: .2,
         });
         gsap.from(mapRef.current, 1, { 
             x: 500,
             opacity: 0,
             ease: Power3.easeOut, 
-            scrollTrigger: paragraphRef.current,
-            delay: 1,
+            scrollTrigger: carRef.current,
         });
         gsap.from(carRef.current, 1, { 
             x: -150,
             opacity: 0,
             ease: Power3.easeOut, 
-            scrollTrigger: paragraphRef.current,
-            delay: 1.3,
+            scrollTrigger: carRef.current,
+            delay: .3,
         });
         gsap.from(screenRef.current, 1.5, { 
             y: -250,
             opacity: 0,
             ease: Power3.easeOut, 
-            scrollTrigger: paragraphRef.current,
-            delay: 1.3,
+            scrollTrigger: carRef.current,
+            delay: .3,
     });
 })
 
