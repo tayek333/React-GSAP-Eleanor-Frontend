@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from 'styled-components';
 import MapImg from '../images/map.png';
 import PhoneImg from '../images/phone.png';
 import Porsche from '../images/porsche.png';
 import { media } from './styles/global.styles';
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 const Section = styled.section`
 display: Flex;
@@ -118,25 +121,70 @@ const Phone = styled.img`
 width: 100%;
 `
 function Section2() {
+
+    const headingRef = useRef(null);
+    const paragraphRef = useRef(null);
+    const mapRef = useRef(null); 
+    const carRef = useRef(null );
+    const screenRef = useRef(null);
+
+        useEffect(() => {
+            gsap.from(headingRef.current, 1, { 
+            y:-200,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1,
+        });
+        gsap.from(paragraphRef.current, 1, { 
+            y:-200,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1.2,
+        });
+        gsap.from(mapRef.current, 1, { 
+            x: 500,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1,
+        });
+        gsap.from(carRef.current, 1, { 
+            x: -150,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1.3,
+        });
+        gsap.from(screenRef.current, 1.5, { 
+            y: -250,
+            opacity: 0,
+            ease: Power3.easeOut, 
+            scrollTrigger: paragraphRef.current,
+            delay: 1.3,
+    });
+})
+
     return(
         <Section>
             <HeadingContainer>
-                <H2>
+                <H2 ref={headingRef}>
                     Delivered To Your Door.
                 </H2>
-                <P>
+                <P ref={paragraphRef}>
                     Eleanor works with your schedule to have a 
                     white-glove delivery service deliver your new
                     vehicle right to your door.
                 </P>
             </HeadingContainer>
             <ImageContent>
-                <MapWrapper>
+                <MapWrapper ref={mapRef}>
                     <Map src={MapImg}/>
                 </MapWrapper>
-                <Car src={Porsche}/>
+                <Car src={Porsche} ref={carRef}/>
                 <PhoneWrapper>
-                    <Phone src={PhoneImg}/>
+                    <Phone ref={screenRef} src={PhoneImg}/>
                 </PhoneWrapper>
             </ImageContent>
         </Section>
