@@ -92,21 +92,21 @@ function Pricing(){
     const paragraphRef = useRef(null); 
 
     useEffect(() => {
-        gsap.from(box1Ref.current, .5, { 
+        gsap.from(box1Ref.current, 1, { 
             opacity: 0,
             y: -100,
             ease: Power3.easeOut, 
             scrollTrigger: paragraphRef.current,
             delay: .2
         });
-        gsap.from(box2Ref.current, .5, { 
+        gsap.from(box2Ref.current, 1, { 
             opacity: 0,
             y: -100,
             ease: Power3.easeOut, 
             scrollTrigger: paragraphRef.current,
             delay: .4,
         });
-        gsap.from(box3Ref.current, .5, { 
+        gsap.from(box3Ref.current, 1, { 
             opacity: 0,
             y: -100,
             ease: Power3.easeOut, 
