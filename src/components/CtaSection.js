@@ -164,27 +164,28 @@ function CtaSection(){
             opacity: 0,
             x: -200,
             ease: Power3.easeOut, 
-            scrollTrigger: carRef.current,
-            delay: .2,
+            scrollTrigger: contentRef.current,
+            delay: 1.2,
         });
         gsap.from(guyRef.current, .5, { 
             opacity: 0,
             x: -200,
             ease: Power3.easeOut, 
-            scrollTrigger: carRef.current,
-            delay: .2,
+            scrollTrigger: contentRef.current,
+            delay: 1.2,
         });
         gsap.from(cardRef.current, .5, { 
-            x: -600,
+            x: -1000,
             ease: Power3.easeOut, 
-            scrollTrigger: carRef.current,
+            scrollTrigger: contentRef.current,
+            delay: 1,
         });
         gsap.from(contentRef.current, .5, { 
             opacity: 0,
             y: -200,
             ease: Power3.easeOut, 
-            scrollTrigger: carRef.current,
-            delay: .5,
+            scrollTrigger: contentRef.current,
+            delay: 1.5,
         });
     });
 
