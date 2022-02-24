@@ -1,5 +1,4 @@
-import React, { useEffect, useState, Suspense, lazy} from "react";
-import { Switch } from 'react-dom';
+import React, { useEffect, useState, } from "react";
 import GlobalStyles from "./components/styles/global.styles";
 import HeroComponent from "./components/Hero.js";
 import Header from './components/Header';

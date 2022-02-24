@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import loader from '../images/loader.svg';
 import crown from '../images/crown.svg';
-import { gsap, Power3 } from 'gsap';
+import { gsap } from 'gsap';
 
 const LoaderScreen = styled.div`
 background-color: white;

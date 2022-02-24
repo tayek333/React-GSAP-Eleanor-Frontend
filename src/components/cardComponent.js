@@ -5,7 +5,6 @@ import backarrow from '../images/backarrow.svg';
 import gas from '../images/gas.svg';
 import hp from '../images/hp.svg';
 import mph from '../images/mph.svg';
-import RangeRover from '../images/2018-Range-Rover-Velgar.png';
 import { media } from './styles/global.styles'
 import { gsap, Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger' 
@@ -214,7 +213,7 @@ function CardComponent() {
     const [rangerover, setrangerover] = useState(require("../images/2018-Range-Rover-Velgar.png"));
 
     const handleForward = () => {
-        if (productTitle == 'Range Rover') {
+        if (productTitle === 'Range Rover') {
 
             setproductTitle('Porsche');
             setmodelState('2019 - 911 Carrera S');
@@ -239,7 +238,7 @@ function CardComponent() {
                 y: 0
             }
             );
-        } else if (productTitle == 'Porsche') {
+        } else if (productTitle === 'Porsche') {
             setproductTitle('Range Rover');
             setmodelState('2019 - RANGE ROVER VELAR');
             setmpgState('25/29');
