@@ -136,7 +136,7 @@ function Section3() {
 
     useEffect(() => {
         gsap.from(cardRef.current, 1, { 
-            x: -600,
+            x: -1000,
             ease: Power3.easeOut, 
             scrollTrigger: paragraphRef.current,
         });
